@@ -80,12 +80,13 @@ final class Splitter
 
         while (!feof($this->stream)) {
             $line = fgets($this->stream);
-            $line = str_replace("\r\n", "\n", $line); // Replace Windows line endings with unix
-            $line = str_replace("\r", "\n", $line); // Replace mac line endings with unix
 
             if (!$line) {
                 continue;
             }
+
+            $line = str_replace("\r\n", "\n", $line); // Replace Windows line endings with unix
+            $line = str_replace("\r", "\n", $line); // Replace mac line endings with unix
 
             switch ($this->state) {
                 case self::STATE_LIMBO:
